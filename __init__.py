@@ -36,7 +36,7 @@ class WeatherTest(MycroftSkill):
     def handle_test_weather_f(self, message):
         self.handle_test_weather(message)   
 
-    # Handle: idk for the moment
+    # Handle: fetch temperature from company.db
     @intent_handler(IntentBuilder("").require("Query").optionally(
         "Date").optionally("Location").build())
     def handle_test_weather(self, message):
@@ -44,16 +44,22 @@ class WeatherTest(MycroftSkill):
         try:
 
             res={}
-            connection = sqlite3.connect("anotherCompany.db")
+            connection = sqlite3.connect("company.db")
 
             c = connection.cursor()
             
-
-            c.execute("SELECT degree FROM DAILY_FORECAST") 
+            c.execute("SELECT degree FROM DAILY_FORECAST WHERE date = date('now')")
             res["degree"] = c.fetchone()
-            self.speak_dialog('test.weather', res)
             connection.commit()
             connection.close()
+
+            if(res["degree"] is None):
+                self.speak_dialog('test.weather.noforecast')
+                return
+
+            self.speak_dialog('test.weather', res)
+           
+
         except APIErrors as e:
             self.__api_error(e)
         except Exception as e:
