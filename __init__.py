@@ -49,7 +49,7 @@ class WeatherTest(MycroftSkill):
             c = connection.cursor()
             
 
-            c.execute("SELECT degree FROM DAILY_FORECAST WHERE strftime('%Y-%m-%d','date') == date('now')") 
+            c.execute("SELECT degree FROM DAILY_FORECAST") 
             res["degree"] = c.fetchone()
             self.speak_dialog('test.weather', res)
             connection.commit()
