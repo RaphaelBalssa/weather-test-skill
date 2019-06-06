@@ -1,2 +1,2 @@
-The weather was {degree} degree
-It was {degree} degree
+The weather was {{degree}} degree
+It was {{degree}} degree
