@@ -1,6 +1,5 @@
 import time
 from datetime import datetime
-import datetime as dt
 from copy import copy
 import json
 
@@ -17,11 +16,6 @@ from mycroft.util.parse import extract_datetime
 from mycroft.util.format import nice_number
 from requests import HTTPError
 import sqlite3
-
-try:
-    from mycroft.util.time import to_utc, to_local
-except Exception:
-    import pytz
 
 class LocationNotFoundError(ValueError):
     pass
