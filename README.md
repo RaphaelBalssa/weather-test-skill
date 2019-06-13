@@ -8,7 +8,8 @@ J'ai modifié le Skill mycroft-weather-skill utilisant l'API Open Weather Map af
 **English:**
  - "what was the current temper"
  - "Remind me the current temper"
- - "May I ask you the current temper" \n
+ - "May I ask you the current temper" 
+******************************
 **Français:**
  - "quelle était la météo"
  - "rappelle moi la météo"
@@ -16,7 +17,8 @@ J'ai modifié le Skill mycroft-weather-skill utilisant l'API Open Weather Map af
 ## Phrases de réponse possible
 **English:**
  - "It was 26.0 degree"
- - "You never asked weather for this day" \n
+ - "You never asked weather for this day" 
+*****************************
 **Français:**
  - "la température était de 26.0 degrés"
  - "vous n'avez jamais demandé la température pour cette date"
