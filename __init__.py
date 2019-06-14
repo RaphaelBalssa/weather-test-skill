@@ -12,10 +12,15 @@ from mycroft.api import Api
 from mycroft.messagebus.message import Message
 from mycroft.util.format import nice_time
 from mycroft.util.log import LOG
+from mycroft.util.log import getLogger
 from mycroft.util.parse import extract_datetime
 from mycroft.util.format import nice_number
 from requests import HTTPError
 import sqlite3
+
+
+LOGGER = getLogger(__name__)
+
 
 class LocationNotFoundError(ValueError):
     pass
@@ -31,8 +36,6 @@ class WeatherTest(MycroftSkill):
         self.handle_test_weather(message)   
 
     # Handle: fetch temperature from company.db
-    @intent_handler(IntentBuilder("").require("Query").optionally(
-        "Date").optionally("Location").build())
     def handle_test_weather(self, message):
 
         try:
