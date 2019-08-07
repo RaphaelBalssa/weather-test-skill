@@ -69,5 +69,8 @@ class WeatherTest(MycroftSkill):
             from mycroft import Message
             self.bus.emit(Message("mycroft.not.paired"))
 
+
+
+
 def create_skill():
     return WeatherTest()
